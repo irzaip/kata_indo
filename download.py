@@ -10,8 +10,8 @@ allwords = f.readlines()
 
 outdir="./kata_mp3"
 
-lfrom=60000
-lto=71560
+lfrom=50000
+lto=60001
 
 def process(ffn,slow=False):
     ffn.replace("\n","")
