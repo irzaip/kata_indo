@@ -5,14 +5,14 @@ allwords = f.readlines()
 
 wstart = 0
 wstop = 15000
-outdir="./kata_SLO.1"
+outdir="./kata_TAN.1"
 
 def process(ffn,slow=False):
     ffn.replace("\n","")
     ffn = re.sub(r"[^a-zA-Z]","",ffn)
     ffx = os.path.join(outdir,ffn+".mp3")
     try:
-        af = gtts.gTTS(ffn,lang='id',slow=slow)
+        af = gtts.gTTS(ffn+"?",lang='id',slow=slow)
     except:
         print("Error retrieveing :",ffx)
     try:
