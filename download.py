@@ -3,14 +3,14 @@ import re
 import glob
 import sys
 import time
-
+import gtts
 
 f = open("full_indo_word.txt",'r')
 allwords = f.readlines()
 
-outdir="/home/ubuntu/result"
+outdir="./kata_mp3"
 
-lfrom=71500
+lfrom=60000
 lto=71560
 
 def process(ffn,slow=False):
@@ -18,10 +18,14 @@ def process(ffn,slow=False):
     ffn = re.sub(r"[^a-zA-Z]","",ffn)
     try:
         af = gtts.gTTS(ffn,lang='id',slow=slow)
-        af.save(os.path.join(outdir,ffn+".mp3"))
     except:
-        print("ERROR - ", ffn)
-    print(ffn)
+        print("Error getting - GTTS:",ffn)
+    try:
+        ffx = os.path.join(outdir,ffn+".mp3")
+        af.save(ffx)
+        print(ffx)
+    except:
+        print("ERROR saving - ", ffx)
     time.sleep(0.3)
     
     
