@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 
 kata_wav/**
+cipi.wav.full/**
